@@ -25,10 +25,10 @@ def brolexa(default_message="Choose application"):
 	speak(default_message)
 	ask = get_audio()
 	if ask.lower() == "exit":
-		speak("Shutting down")
+		speak("Shutting down, bye bye")
 	elif ask.lower() == "clock":
-		time = datetime.datetime.now()
-		speak(f'Clock is {time.hour}:{time.minute}')
+		time_atm = datetime.datetime.now()
+		speak(f'Clock is {time_atm.hour}:{time_atm.minute}')
 		brolexa()
 	elif ask.lower() == "google":
 		speak("What you want to search")
