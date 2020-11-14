@@ -24,11 +24,11 @@ speak("Hello, i am  Bro-lexa, your assistant")
 def brolexa(default_message="Choose application"):
 	speak(default_message)
 	ask = get_audio()
-	if ask.lower() == "no":
-		print("quit")
+	if ask.lower() == "exit":
+		speak("Shutting down")
 	elif ask.lower() == "clock":
 		time = datetime.datetime.now()
-		speak(f'{time.hour}:{time.minute}')
+		speak(f'Clock is {time.hour}:{time.minute}')
 		brolexa()
 	elif ask.lower() == "google":
 		speak("What you want to search")
@@ -45,14 +45,9 @@ def brolexa(default_message="Choose application"):
 		speak(joke["joke"])
 		time.sleep(1)
 		brolexa()
-
 	elif ask.lower() == "play":
 		play_game()
 		brolexa()
-
-	elif ask.lower() == "exit":
-		speak("Shutting down")
-
 	else:
 		brolexa(f"Couldnt find {ask}, Try again")
 	
