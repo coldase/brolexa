@@ -9,6 +9,11 @@ from arvaa import play_game
 
 engine = pyttsx3.init()
 
+def print_screen(msg):
+	for x in range(80):
+		print("")
+	print(f'{msg}\n')
+
 def get_jokes():
 	url = "https://icanhazdadjoke.com/"
 	res = requests.get(url, headers={"Accept":"application/json"})
@@ -16,11 +21,12 @@ def get_jokes():
 	return data
 
 def speak(text):
+	print_screen(text)
 	engine.say(text)
 	engine.runAndWait()
-		
-speak("Hello, i am  Bro-lexa, your assistant")
+	
 
+speak("Hello, i am  Bro-lexa, your assistant")
 def brolexa(default_message="Choose application"):
 	speak(default_message)
 	ask = get_audio()
